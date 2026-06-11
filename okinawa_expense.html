@@ -388,8 +388,9 @@
 <script>
 // ── Config ──
 const ANTHROPIC_API_KEY = 'YOUR_API_KEY_HERE';
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbx7lNlQ0d9zaHBLSOB1n4N3WzGcQ5xHLNAg_cCsADp65YpKN6VXznj9gMso0_qcnwiLgg/exec';
-const JPY_TO_TWD = 0.22;
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxVMgn9fB0BYPC-9FWh_PS_iQX08GRsKYeH0eRp49-KhGIjqOhSmRgCV5eRT-5aEe57tg/exec';
+const JPY_TO_TWD = 0.2;  // ¥1 ≈ NT$0.2
+const USD_TO_TWD = 32;   // $1 ≈ NT$32
 
 // ── Data ──
 const MOCK = []; // 假資料已清空，實際資料從 GAS 讀取
@@ -412,8 +413,8 @@ const CAT_ICONS = { '餐飲':'🍜','交通':'🚕','購物':'🛍','觀光':'�
 
 function toTWD(a, c) {
   if (c === 'JPY') return a * JPY_TO_TWD;
-  if (c === 'USD') return a * 32; // 約略匯率，可手動調整
-  return a; // TWD
+  if (c === 'USD') return a * USD_TO_TWD;
+  return a;
 }
 
 // ── Tab ──
@@ -554,6 +555,8 @@ function renderRecords(data) {
   if (!data.length) { el.innerHTML = '<div style="text-align:center;padding:48px 20px;color:var(--text-muted)">尚無記帳資料</div>'; return; }
   el.innerHTML = [...data].reverse().map(r => {
     const twd = Math.round(toTWD(r.amount, r.currency));
+    const symbol = r.currency === 'JPY' ? '¥' : r.currency === 'USD' ? 'US$' : 'NT$';
+    const showTWD = r.currency !== 'TWD';
     return `<div class="record-item">
       <div class="record-cat-icon">${CAT_ICONS[r.category] || '📦'}</div>
       <div class="record-main">
@@ -561,8 +564,8 @@ function renderRecords(data) {
         <div class="record-meta">${r.date} · ${r.location} · ${r.category}</div>
       </div>
       <div>
-        <div class="record-amount">${r.currency === 'JPY' ? '¥' : '$'}${r.amount.toLocaleString()}</div>
-        ${r.currency === 'JPY' ? `<div class="record-twd">≈ NT$${twd.toLocaleString()}</div>` : ''}
+        <div class="record-amount">${symbol}${r.amount.toLocaleString()} <span style="font-size:12px;opacity:0.7">${r.currency}</span></div>
+        ${showTWD ? `<div class="record-twd">≈ NT$${twd.toLocaleString()}</div>` : ''}
       </div>
     </div>`;
   }).join('');
@@ -715,13 +718,16 @@ function showToast(msg, err=false) {
 // ── 格式正規化 ──────────────────────────────────────────
 function normalizeDate(raw) {
   if (!raw) return '';
-  const s = String(raw);
-  // 2026.06.30 → 6/30
-  let m = s.match(/\d{4}[.\-\/](\d{1,2})[.\-\/](\d{1,2})/);
-  if (m) return `${parseInt(m[1])}/${m[2].padStart(2,'0')}`;
-  // 已經是 6/30 或 7/01 格式
+  const s = String(raw).trim();
+  // 2026.06.30 or 2026-06-30 or 2026/06/30
+  let m = s.match(/(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})/);
+  if (m) return `${parseInt(m[2])}/${m[3].padStart(2,'0')}`;
+  // 已是 6/30 或 7/01
   m = s.match(/^(\d{1,2})\/(\d{1,2})$/);
   if (m) return `${parseInt(m[1])}/${m[2].padStart(2,'0')}`;
+  // ISO date string from GAS (e.g. 2026-06-30T00:00:00.000Z)
+  m = s.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+  if (m) return `${parseInt(m[2])}/${m[3]}`;
   return s;
 }
 
