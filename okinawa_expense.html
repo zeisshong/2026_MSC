@@ -279,9 +279,7 @@
       <svg id="donutSvg" width="120" height="120" viewBox="0 0 120 120"></svg>
       <div class="legend" id="catLegend"></div>
     </div>
-  </div>
-
-  <div class="card">
+    <div style="height:0.5px;background:var(--border);margin:12px 0"></div>
     <div class="card-title">幣別結構</div>
     <div class="bar-chart" id="curBars"></div>
   </div>
@@ -573,13 +571,19 @@ function renderStats(data) {
             <div class="detail-loc">${r.location}</div>
           </div>
           <div>
-            <div class="detail-amt">${r.currency === 'JPY' ? '¥' : '$'}${r.amount.toLocaleString()}</div>
-            ${r.currency === 'JPY' ? `<div class="detail-twd">≈ NT$${twd.toLocaleString()}</div>` : ''}
+            <div class="detail-amt">${'¥JPY,NT$TWD,US$USD'.split(',').reduce((m,s)=>{const[p,c]=s.split(/(?=[A-Z]{2,})/);return {...m,[c]:p}},{})[r.currency]||'$'}${r.amount.toLocaleString()}</div>
+            ${r.currency !== 'TWD' ? `<div class="detail-twd">≈ NT$${twd.toLocaleString()}</div>` : ''}
           </div>
         </div>`;
       }).join('');
 
-      detail.innerHTML = miniBars + recRows;
+      // Tax refund summary
+      const taxRows = rows.filter(r => r.currency === 'JPY' && r.amount >= 5000);
+      const taxHint = taxRows.length > 0
+        ? `<div style="margin-top:10px;padding:8px 12px;background:rgba(10,191,184,0.08);border-radius:8px;font-size:13px;color:#086E6A;border:0.5px solid rgba(10,191,184,0.25)">🧾 今日有 <strong>${taxRows.length}</strong> 筆可申請退稅</div>`
+        : '';
+
+      detail.innerHTML = miniBars + recRows + taxHint;
     }
 
     ac.appendChild(summary);
@@ -610,6 +614,7 @@ function renderDonut(values, total) {
       <div class="legend-dot" style="background:${c.color}"></div>
       <div class="legend-label">${c.name}</div>
       <div class="legend-val">${Math.round(values[i] / total * 100)}%</div>
+      <div style="font-size:12px;color:#086E6A;font-weight:500;min-width:64px;text-align:right">NT$${Math.round(values[i]).toLocaleString()}</div>
     </div>`;
   }).join('');
 }
