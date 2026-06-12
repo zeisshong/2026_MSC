@@ -266,7 +266,7 @@
   .fab-item:hover { background: rgba(0,0,0,0.05); transform: none; box-shadow: none; }
   .fab-item-icon { font-size: 1.25rem; }
   .fab-main {
-    width: 56px; height: 56px; border-radius: 50%; border: none;
+    width: 48px; height: 48px; border-radius: 50%; border: none;
     background: linear-gradient(135deg, #0ABFB8, #5DD8D4);
     color: white; font-size: 1.625rem; cursor: pointer;
     box-shadow: 0 4px 18px rgba(10,191,184,0.35), 0 0 0 2px white;
@@ -277,6 +277,22 @@
   }
   .fab-main:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(10,191,184,0.45), 0 0 0 2px white; }
   .fab-main.open { transform: rotate(45deg); }
+  .fab-font-row {
+    display: flex; align-items: center; gap: 0;
+    padding: 10px 14px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.07);
+  }
+  .fab-font-label {
+    font-size: 0.875rem; font-weight: 600; color: #2A1E1A;
+    margin-right: 10px; white-space: nowrap;
+  }
+  .fab-font-opts { display: flex; gap: 4px; }
+  .fab-font-opt {
+    padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(10,191,184,0.3);
+    background: transparent; color: #2A7A76; font-size: 0.813rem; font-weight: 600;
+    cursor: pointer; font-family: inherit; transition: all 0.15s;
+  }
+  .fab-font-opt.active { background: #0ABFB8; color: white; border-color: #0ABFB8; }
 
   /* ── EMERGENCY MODAL ── */
   .emergency-modal {
@@ -1500,18 +1516,45 @@
     <a class="fab-item" href="https://zeisshong.github.io/okinawa/okinawa_expense.html">
       <span class="fab-item-icon">💰</span>旅遊記帳
     </a>
+    <div class="fab-font-row">
+      <span class="fab-font-label">文字大小</span>
+      <div class="fab-font-opts">
+        <button class="fab-font-opt" id="fopt-s" onclick="setFontSize('s')">小</button>
+        <button class="fab-font-opt active" id="fopt-m" onclick="setFontSize('m')">中</button>
+        <button class="fab-font-opt" id="fopt-l" onclick="setFontSize('l')">大</button>
+      </div>
+    </div>
   </div>
   <button class="fab-main" id="fabMain" onclick="toggleFab()">＋</button>
 </div>
 
 <script>
+  const FONT_SIZES = { s: '15px', m: '17px', l: '20px' };
+
+  function setFontSize(key) {
+    document.documentElement.style.fontSize = FONT_SIZES[key];
+    localStorage.setItem('okinawa-font-size', key);
+    ['s','m','l'].forEach(k => {
+      document.getElementById('fopt-' + k).classList.toggle('active', k === key);
+    });
+  }
+
+  function initFontSize() {
+    const saved = localStorage.getItem('okinawa-font-size') || 'm';
+    document.documentElement.style.fontSize = FONT_SIZES[saved];
+    ['s','m','l'].forEach(k => {
+      const el = document.getElementById('fopt-' + k);
+      if (el) el.classList.toggle('active', k === saved);
+    });
+  }
+
   function toggleFab() {
     const menu = document.getElementById('fabMenu');
     const btn  = document.getElementById('fabMain');
     const open = menu.classList.toggle('open');
     btn.classList.toggle('open', open);
   }
-  // 點其他地方關閉
+
   document.addEventListener('click', e => {
     const wrap = document.querySelector('.fab-wrap');
     if (!wrap.contains(e.target)) {
@@ -1519,6 +1562,8 @@
       document.getElementById('fabMain').classList.remove('open');
     }
   });
+
+  initFontSize();
 </script>
 </body>
 </html>
