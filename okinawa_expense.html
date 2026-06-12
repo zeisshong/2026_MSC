@@ -19,21 +19,21 @@
     --font: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 17px; min-height: 100vh; padding-bottom: 100px; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 1.063rem; min-height: 100vh; padding-bottom: 100px; }
   .page-wrap { max-width: 600px; margin: 0 auto; }
 
   /* Header */
   .header { background: linear-gradient(135deg, #E8F9F8 0%, #C8F0EE 50%, #A0E4E0 100%); padding: 28px 20px 20px; text-align: center; border-bottom: 1px solid var(--border); position: relative; }
-  .back-btn { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); display: flex; align-items: center; gap: 5px; color: #086E6A; font-size: 15px; font-weight: 600; text-decoration: none; padding: 6px 10px; border-radius: 20px; background: rgba(10,191,184,0.1); transition: background 0.15s; }
+  .back-btn { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); display: flex; align-items: center; gap: 5px; color: #086E6A; font-size: 0.938rem; font-weight: 600; text-decoration: none; padding: 6px 10px; border-radius: 20px; background: rgba(10,191,184,0.1); transition: background 0.15s; }
   .back-btn:hover { background: rgba(10,191,184,0.2); }
-  .header-eyebrow { font-size: 13px; color: #086E6A; letter-spacing: 0.12em; font-weight: 500; margin-bottom: 6px; }
-  .header h1 { font-size: 24px; font-weight: 700; color: #0A3230; }
-  .header-sub { font-size: 14px; color: #0ABFB8; margin-top: 4px; }
+  .header-eyebrow { font-size: 0.875rem; color: #086E6A; letter-spacing: 0.12em; font-weight: 500; margin-bottom: 6px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; color: #0A3230; }
+  .header-sub { font-size: 0.875rem; color: #0ABFB8; margin-top: 4px; }
 
   /* Tabs */
   .tabs-outer { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
   .tabs { display: flex; max-width: 600px; margin: 0 auto; }
-  .tab { flex: 1; padding: 14px 8px; text-align: center; font-size: 15px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); transition: color 0.2s, border-color 0.2s; }
+  .tab { flex: 1; padding: 14px 8px; text-align: center; font-size: 0.938rem; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); transition: color 0.2s, border-color 0.2s; }
   .tab.active { color: #0A3230; border-bottom-color: #0ABFB8; }
 
   .panel { display: none; padding: 20px 16px; max-width: 600px; margin: 0 auto; }
@@ -41,20 +41,20 @@
 
   /* Cards */
   .card { background: var(--surface); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; border: 1px solid var(--border); }
-  .card-title { font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 14px; }
-  .section-label { font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.1em; margin: 24px 0 10px; padding-left: 2px; }
+  .card-title { font-size: 0.875rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .section-label { font-size: 0.875rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.1em; margin: 24px 0 10px; padding-left: 2px; }
 
   /* Summary stats */
   .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
   .stat-box { background: var(--surface); border-radius: 12px; padding: 14px; text-align: center; }
-  .stat-num { font-size: 26px; font-weight: 700; color: var(--accent2); line-height: 1.1; }
-  .stat-unit { font-size: 13px; color: var(--text-muted); }
-  .stat-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .stat-num { font-size: 1.625rem; font-weight: 700; color: var(--accent2); line-height: 1.1; }
+  .stat-unit { font-size: 0.875rem; color: var(--text-muted); }
+  .stat-desc { font-size: 0.875rem; color: var(--text-muted); margin-top: 2px; }
 
   /* Donut */
   .donut-wrap { display: flex; align-items: center; gap: 20px; }
   .legend { display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
   .legend-label { color: var(--text-muted); flex: 1; }
   .legend-val { color: var(--text); font-weight: 600; }
@@ -62,10 +62,10 @@
   /* Bar chart */
   .bar-chart { display: flex; flex-direction: column; gap: 10px; }
   .bar-row { display: flex; align-items: center; gap: 10px; }
-  .bar-label { font-size: 14px; color: var(--text-muted); width: 80px; flex-shrink: 0; text-align: right; }
+  .bar-label { font-size: 0.875rem; color: var(--text-muted); width: 80px; flex-shrink: 0; text-align: right; }
   .bar-track { flex: 1; background: var(--surface2); border-radius: 6px; height: 22px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 6px; min-width: 2px; }
-  .bar-amt { font-size: 13px; color: var(--text-muted); width: 80px; flex-shrink: 0; text-align: right; }
+  .bar-amt { font-size: 0.875rem; color: var(--text-muted); width: 88px; flex-shrink: 0; text-align: right; }
 
   /* ── Daily accordion ── */
   .day-accordion { margin-bottom: 10px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
@@ -85,19 +85,19 @@
     background: var(--surface2);
     border-radius: 8px;
     padding: 6px 10px;
-    font-size: 12px;
+    font-size: 0.813rem;
     font-weight: 700;
     color: var(--accent);
     white-space: nowrap;
   }
   .day-summary-info { }
-  .day-summary-name { font-size: 15px; font-weight: 600; }
-  .day-summary-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .day-summary-name { font-size: 0.938rem; font-weight: 600; }
+  .day-summary-sub { font-size: 0.875rem; color: var(--text-muted); margin-top: 2px; }
   .day-summary-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
   .day-summary-total { text-align: right; }
-  .day-summary-amount { font-size: 17px; font-weight: 700; color: var(--accent2); }
-  .day-summary-count { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-  .day-chevron { color: var(--text-muted); font-size: 14px; transition: transform 0.25s; }
+  .day-summary-amount { font-size: 1.063rem; font-weight: 700; color: var(--accent2); }
+  .day-summary-count { font-size: 0.813rem; color: var(--text-muted); margin-top: 2px; }
+  .day-chevron { color: var(--text-muted); font-size: 0.875rem; transition: transform 0.25s; }
   .day-accordion.open .day-chevron { transform: rotate(180deg); }
 
   /* Expanded content */
@@ -111,29 +111,29 @@
 
   /* Mini category bars inside day detail */
   .mini-cat-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .mini-cat-label { font-size: 13px; color: var(--text-muted); width: 52px; flex-shrink: 0; }
+  .mini-cat-label { font-size: 0.875rem; color: var(--text-muted); width: 52px; flex-shrink: 0; }
   .mini-bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 8px; }
   .mini-bar-fill { height: 100%; border-radius: 4px; }
-  .mini-cat-amt { font-size: 13px; color: var(--text-muted); width: 72px; text-align: right; flex-shrink: 0; }
+  .mini-cat-amt { font-size: 0.875rem; color: var(--text-muted); width: 72px; text-align: right; flex-shrink: 0; }
 
   /* Record rows inside expanded */
   .detail-record { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); }
-  .detail-icon { width: 34px; height: 34px; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .detail-icon { width: 34px; height: 34px; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.125rem; flex-shrink: 0; }
   .detail-main { flex: 1; min-width: 0; }
-  .detail-desc { font-size: 15px; font-weight: 500; }
-  .detail-loc { font-size: 13px; color: var(--text-muted); margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .detail-amt { font-size: 15px; font-weight: 700; color: var(--accent2); flex-shrink: 0; text-align: right; }
-  .detail-twd { font-size: 12px; color: var(--text-muted); text-align: right; }
+  .detail-desc { font-size: 0.938rem; font-weight: 500; }
+  .detail-loc { font-size: 0.875rem; color: var(--text-muted); margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .detail-amt { font-size: 0.938rem; font-weight: 700; color: var(--accent2); flex-shrink: 0; text-align: right; }
+  .detail-twd { font-size: 0.813rem; color: var(--text-muted); text-align: right; }
 
   /* Records tab */
   .record-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
   .record-item:last-child { border-bottom: none; }
-  .record-cat-icon { width: 40px; height: 40px; background: var(--surface2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .record-cat-icon { width: 40px; height: 40px; background: var(--surface2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
   .record-main { flex: 1; min-width: 0; }
-  .record-desc { font-size: 16px; font-weight: 500; }
-  .record-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
-  .record-amount { font-size: 17px; font-weight: 700; color: var(--accent2); text-align: right; flex-shrink: 0; }
-  .record-twd { font-size: 12px; color: var(--text-muted); text-align: right; }
+  .record-desc { font-size: 1rem; font-weight: 500; }
+  .record-meta { font-size: 0.875rem; color: var(--text-muted); margin-top: 2px; }
+  .record-amount { font-size: 1.063rem; font-weight: 700; color: var(--accent2); text-align: right; flex-shrink: 0; }
+  .record-twd { font-size: 0.813rem; color: var(--text-muted); text-align: right; }
 
   /* ── FAB ── */
   .fab {
@@ -144,7 +144,7 @@
     border-radius: 50%;
     border: none;
     color: #fff;
-    font-size: 28px;
+    font-size: 1.75rem;
     cursor: pointer;
     box-shadow: 0 4px 18px rgba(10,191,184,0.35), 0 0 0 2px white;
     display: flex; align-items: center; justify-content: center;
@@ -183,8 +183,8 @@
   @keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .modal-handle { width: 40px; height: 4px; background: rgba(10,191,184,0.25); border-radius: 2px; margin: 14px auto 0; }
   .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 12px; border-bottom: 1px solid rgba(10,191,184,0.15); }
-  .modal-title { font-size: 17px; font-weight: 700; color: #0A3230; }
-  .modal-close { background: rgba(10,191,184,0.12); border: none; color: #2A7A76; width: 30px; height: 30px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font); }
+  .modal-title { font-size: 1.063rem; font-weight: 700; color: #0A3230; }
+  .modal-close { background: rgba(10,191,184,0.12); border: none; color: #2A7A76; width: 30px; height: 30px; border-radius: 50%; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font); }
   .modal-body { padding: 18px 20px 0; }
 
   /* Modal steps */
@@ -200,31 +200,31 @@
   }
   .upload-area:hover { border-color: #0ABFB8; background: rgba(10,191,184,0.05); }
   .upload-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-  .upload-icon { font-size: 38px; margin-bottom: 8px; }
-  .upload-text { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
-  .upload-hint { font-size: 14px; color: #7A6258; }
+  .upload-icon { font-size: 2.375rem; margin-bottom: 8px; }
+  .upload-text { font-size: 1.063rem; font-weight: 600; margin-bottom: 4px; }
+  .upload-hint { font-size: 0.875rem; color: #7A6258; }
 
   .preview-wrap { display: none; margin-bottom: 14px; position: relative; }
   .preview-wrap img { width: 100%; border-radius: 10px; max-height: 200px; object-fit: contain; background: #000; }
-  .preview-clear { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 28px; height: 28px; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font); }
+  .preview-clear { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 50%; width: 28px; height: 28px; font-size: 0.938rem; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font); }
 
-  .btn-primary { width: 100%; padding: 15px; background: linear-gradient(135deg, #0ABFB8, #5DD8D4); color: #fff; border: none; border-radius: var(--radius); font-size: 17px; font-weight: 700; font-family: var(--font); cursor: pointer; transition: opacity 0.2s; margin-bottom: 10px; }
+  .btn-primary { width: 100%; padding: 15px; background: linear-gradient(135deg, #0ABFB8, #5DD8D4); color: #fff; border: none; border-radius: var(--radius); font-size: 1.063rem; font-weight: 700; font-family: var(--font); cursor: pointer; transition: opacity 0.2s; margin-bottom: 10px; }
   .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
-  .btn-secondary { width: 100%; padding: 13px; background: transparent; color: #2A7A76; border: 1px solid rgba(10,191,184,0.3); border-radius: var(--radius); font-size: 16px; font-family: var(--font); cursor: pointer; }
-  .btn-save { width: 100%; padding: 15px; background: #0ABFB8; color: #fff; border: none; border-radius: var(--radius); font-size: 17px; font-weight: 700; font-family: var(--font); cursor: pointer; margin-bottom: 10px; }
+  .btn-secondary { width: 100%; padding: 13px; background: transparent; color: #2A7A76; border: 1px solid rgba(10,191,184,0.3); border-radius: var(--radius); font-size: 1rem; font-family: var(--font); cursor: pointer; }
+  .btn-save { width: 100%; padding: 15px; background: #0ABFB8; color: #fff; border: none; border-radius: var(--radius); font-size: 1.063rem; font-weight: 700; font-family: var(--font); cursor: pointer; margin-bottom: 10px; }
 
   /* Form */
   .form-group { margin-bottom: 13px; }
-  .form-label { display: block; font-size: 13px; color: #2A7A76; margin-bottom: 5px; font-weight: 500; }
-  .form-input, .form-select { width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(10,191,184,0.25); border-radius: 10px; color: #0A3230; font-size: 16px; font-family: var(--font); appearance: none; -webkit-appearance: none; outline: none; }
+  .form-label { display: block; font-size: 0.875rem; color: #2A7A76; margin-bottom: 5px; font-weight: 500; }
+  .form-input, .form-select { width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(10,191,184,0.25); border-radius: 10px; color: #0A3230; font-size: 1rem; font-family: var(--font); appearance: none; -webkit-appearance: none; outline: none; }
   .form-input:focus, .form-select:focus { border-color: #0ABFB8; }
   .currency-row { display: flex; gap: 8px; }
   .currency-row .form-input { flex: 1; }
-  .currency-btn { padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(10,191,184,0.25); background: rgba(255,255,255,0.8); color: #2A7A76; font-size: 14px; font-family: var(--font); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
+  .currency-btn { padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(10,191,184,0.25); background: rgba(255,255,255,0.8); color: #2A7A76; font-size: 0.875rem; font-family: var(--font); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
   .currency-btn.active { background: linear-gradient(135deg, #0ABFB8, #5DD8D4); color: #fff; border-color: #0ABFB8; }
   .category-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 7px; }
-  .cat-btn { padding: 9px 4px; border-radius: 10px; border: 1px solid rgba(10,191,184,0.25); background: rgba(255,255,255,0.8); color: #2A7A76; font-size: 12px; font-family: var(--font); cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: all 0.15s; }
-  .cat-btn .ci { font-size: 20px; }
+  .cat-btn { padding: 9px 4px; border-radius: 10px; border: 1px solid rgba(10,191,184,0.25); background: rgba(255,255,255,0.8); color: #2A7A76; font-size: 0.813rem; min-height: 60px; font-family: var(--font); cursor: pointer; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: all 0.15s; }
+  .cat-btn .ci { font-size: 1.25rem; }
   .cat-btn.active { background: rgba(10,191,184,0.12); border-color: #0ABFB8; color: #086E6A; }
 
   /* Loading overlay */
@@ -232,10 +232,10 @@
   .loading-overlay.show { display: flex; }
   .spinner { width: 50px; height: 50px; border: 4px solid rgba(10,191,184,0.2); border-top-color: #0ABFB8; border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-text { font-size: 17px; color: #086E6A; }
+  .loading-text { font-size: 1.063rem; color: #086E6A; }
 
   /* Toast */
-  .toast { position: fixed; bottom: 108px; left: 50%; transform: translateX(-50%) translateY(60px); background: #0ABFB8; color: #fff; padding: 13px 26px; border-radius: 50px; font-size: 15px; font-weight: 600; z-index: 9999; transition: transform 0.3s ease; white-space: nowrap; }
+  .toast { position: fixed; bottom: 108px; left: 50%; transform: translateX(-50%) translateY(60px); background: #0ABFB8; color: #fff; padding: 13px 26px; border-radius: 50px; font-size: 0.938rem; font-weight: 600; z-index: 9999; transition: transform 0.3s ease; white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.error { background: #e53935; }
 
@@ -346,7 +346,7 @@
             <button class="currency-btn active" id="btnJPY" onclick="setCurrency('JPY')">¥ JPY</button>
             <button class="currency-btn" id="btnTWD" onclick="setCurrency('TWD')">$ TWD</button>
           </div>
-          <div id="taxHint" style="display:none;margin-top:6px;padding:7px 12px 7px 14px;background:rgba(255,183,77,0.22);border-radius:8px;font-size:13px;color:#6A3E00;border-left:3px solid #F0A000;font-weight:500">
+          <div id="taxHint" style="display:none;margin-top:6px;padding:7px 12px 7px 14px;background:rgba(255,183,77,0.22);border-radius:8px;font-size:0.875rem;color:#6A3E00;border-left:3px solid #F0A000;font-weight:500">
             🧾 單筆超過 ¥5,000，記得向店家申請退稅！
           </div>
         </div>
@@ -455,22 +455,22 @@ function renderHighlights(data) {
     <div style="display:flex;flex-direction:column;gap:0">
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
         <div>
-          <div style="font-size:13px;color:var(--text-muted);margin-bottom:2px">最大一筆</div>
-          <div style="font-size:15px;font-weight:600">${maxRec.desc || maxRec.location}</div>
-          <div style="font-size:12px;color:var(--text-muted)">${maxRec.location}</div>
+          <div style="font-size:0.875rem;color:var(--text-muted);margin-bottom:2px">最大一筆</div>
+          <div style="font-size:0.938rem;font-weight:600">${maxRec.desc || maxRec.location}</div>
+          <div style="font-size:0.813rem;color:var(--text-muted)">${maxRec.location}</div>
         </div>
         <div style="text-align:right">
-          <div style="font-size:17px;font-weight:700;color:#086E6A">${sym}${maxRec.amount.toLocaleString()}</div>
-          <div style="font-size:12px;color:var(--text-muted)">≈ NT$${maxTWD.toLocaleString()}</div>
+          <div style="font-size:1.063rem;font-weight:700;color:#086E6A">${sym}${maxRec.amount.toLocaleString()}</div>
+          <div style="font-size:0.813rem;color:var(--text-muted)">≈ NT$${maxTWD.toLocaleString()}</div>
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0">
         <div>
-          <div style="font-size:13px;color:var(--text-muted);margin-bottom:2px">最花錢的一天</div>
-          <div style="font-size:15px;font-weight:600">${maxDay.label}</div>
+          <div style="font-size:0.875rem;color:var(--text-muted);margin-bottom:2px">最花錢的一天</div>
+          <div style="font-size:0.938rem;font-weight:600">${maxDay.label}</div>
         </div>
         <div style="text-align:right">
-          <div style="font-size:17px;font-weight:700;color:#086E6A">NT$${Math.round(maxDay.total).toLocaleString()}</div>
+          <div style="font-size:1.063rem;font-weight:700;color:#086E6A">NT$${Math.round(maxDay.total).toLocaleString()}</div>
         </div>
       </div>
     </div>`;
@@ -547,7 +547,7 @@ function renderStats(data) {
     detail.className = 'day-detail';
 
     if (rows.length === 0) {
-      detail.innerHTML = '<div style="color:var(--text-muted);font-size:14px;padding:8px 0">本日無消費記錄</div>';
+      detail.innerHTML = '<div style="color:var(--text-muted);font-size:0.875rem;padding:8px 0">本日無消費記錄</div>';
     } else {
       // Mini cat bars
       const dayMax = Math.max(...CATS.map(c => rows.filter(r => r.category === c.name).reduce((s, r) => s + toTWD(r.amount, r.currency), 0)), 1);
@@ -580,7 +580,7 @@ function renderStats(data) {
       // Tax refund summary
       const taxRows = rows.filter(r => r.currency === 'JPY' && r.amount >= 5000);
       const taxHint = taxRows.length > 0
-        ? `<div style="margin-top:10px;padding:8px 12px 8px 14px;background:rgba(255,255,255,0.85);border-radius:8px;font-size:13px;color:#065A54;border-left:3px solid #0ABFB8;font-weight:500">🧾 今日有 <strong>${taxRows.length}</strong> 筆可申請退稅</div>`
+        ? `<div style="margin-top:10px;padding:8px 12px 8px 14px;background:rgba(255,255,255,0.85);border-radius:8px;font-size:0.875rem;color:#065A54;border-left:3px solid #0ABFB8;font-weight:500"> 今日有 <strong>${taxRows.length}</strong> 筆可申請退稅</div>`
         : '';
 
       detail.innerHTML = miniBars + recRows + taxHint;
@@ -614,7 +614,7 @@ function renderDonut(values, total) {
       <div class="legend-dot" style="background:${c.color}"></div>
       <div class="legend-label">${c.name}</div>
       <div class="legend-val">${Math.round(values[i] / total * 100)}%</div>
-      <div style="font-size:12px;color:#086E6A;font-weight:500;min-width:64px;text-align:right">NT$${Math.round(values[i]).toLocaleString()}</div>
+      <div style="font-size:0.813rem;color:#086E6A;font-weight:500;min-width:auto;text-align:right">NT$${Math.round(values[i]).toLocaleString()}</div>
     </div>`;
   }).join('');
 }
@@ -633,13 +633,13 @@ function renderRecords(data) {
       <div class="record-main">
         <div class="record-desc">${r.desc}</div>
         <div class="record-meta">${r.date} · ${r.location} · ${r.category}</div>
-        ${r.items ? `<div style="font-size:12px;color:var(--text-muted);margin-top:2px">${r.items}</div>` : ''}
+        ${r.items ? `<div style="font-size:0.813rem;color:var(--text-muted);margin-top:2px">${r.items}</div>` : ''}
       </div>
       <div style="text-align:right">
         <div class="record-amount">${symbol}${r.amount.toLocaleString()}</div>
-        <div class="record-twd" style="color:var(--text-muted);font-size:12px">${r.currency}</div>
+        <div class="record-twd" style="color:var(--text-muted);font-size:0.813rem">${r.currency}</div>
         ${showTWD ? `<div class="record-twd">≈ NT$${twd.toLocaleString()}</div>` : ''}
-        ${r.currency === 'JPY' && r.amount >= 5000 ? `<div style="font-size:11px;color:#6A3E00;background:rgba(255,183,77,0.28);border-radius:6px;padding:3px 8px;margin-top:3px;display:inline-block;font-weight:500;border:0.5px solid rgba(240,160,0,0.4)">🧾 可退稅</div>` : ''}
+        ${r.currency === 'JPY' && r.amount >= 5000 ? `<div style="font-size:0.813rem;color:#6A3E00;background:rgba(255,183,77,0.28);border-radius:6px;padding:3px 8px;margin-top:3px;display:inline-block;font-weight:500;border:0.5px solid rgba(240,160,0,0.4)">可退稅</div>` : ''}
       </div>
     </div>`;
   }).join('');
